@@ -5,8 +5,107 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChristmasBazaar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Bazar Navideño" Height="680" Width="770">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="450"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#009051">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="550"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="TextBlock_SystemName" Grid.Column="1" HorizontalAlignment="Left" Margin="143,-25,0,0" TextWrapping="Wrap" Text="Bazar Navideño- Consume en tu Localidad" VerticalAlignment="Center" Width="399" Foreground="White" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="Label_Slogan" Grid.Column="1" Content="La fuerza del consumo local" HorizontalAlignment="Left" Margin="319,45,0,0" VerticalAlignment="Top" FontSize="18" FontStyle="Italic" FontWeight="Normal" Foreground="White"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#000000"/>
+        <Grid Grid.Row="2" Background="#ff2600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="450"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="Image_PoinsettiaFloweer" Source="Images/Image_PoinsettiaFlower.png" Width="190" Height="190" Margin="31,-134,529,34" Stretch="Uniform" StretchDirection="Both" Grid.ColumnSpan="2"/>
+            <Label x:Name="Label_Name" Content="Nombre" HorizontalAlignment="Left" Margin="234,15,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
+            <Label x:Name="Label_Addres" Content="Dirección" HorizontalAlignment="Left" Margin="225,45,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14"/>
+            <TextBox x:Name="TextBox_Name" Grid.Column="1" MaxLength="50" HorizontalAlignment="Left" Margin="25,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_Addres" Grid.Column="1" MaxLength="100" HorizontalAlignment="Left" Margin="25,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Background="#ff2600">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="450"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Image_ChristmasSocks" Grid.Row="0" Source="Images/Image_ChristmasSocks.png" Width="160" Height="120" Margin="10,0,0,0"/>
+                <Image x:Name="Image_MenChristmasSweater" Grid.Row="1" Source="Images/Image_MenChristmasSweater.png" Width="160" Height="120" Margin="10,0,0,0"/>
+                <Image x:Name="Image_WomenChristmasSweater" Grid.Row="2" Source="Images/Image_WomenChristmasSweater.png" Width="160" Height="120" Margin="10,0,0,0"/>
+                <TextBlock x:Name="TextBlock_ChristmasSocksInformation" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Set de 5 Tines Navideños UNITALLA $250.00" VerticalAlignment="Center" Width="106" Foreground="White" FontSize="14" FontWeight="Normal" FontFamily="Times New Roman" Margin="-28,-8,0,0"/>
+                <TextBlock x:Name="TextBlock_MenChristmasSweaterInformation" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Suéter Navideño Hombre UNITALLA $520.00" VerticalAlignment="Center" Width="106" Foreground="White" FontSize="14" FontWeight="Normal" FontFamily="Times New Roman" Margin="-28,-8,0,0"/>
+                <TextBlock x:Name="TextBlock_WomenChristmasSweaterInformation" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Suéter Navideño Mujer UNITALLA $450.00" VerticalAlignment="Center" Width="106" Foreground="White" FontSize="14" FontWeight="Normal" FontFamily="Times New Roman" Margin="-28,-8,0,0"/>
+                <TextBox x:Name="TextBox_ChristmasSocksQuantity" Grid.Column="2" MaxLength="3" HorizontalAlignment="Left" Margin="25,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+                <TextBox x:Name="TextBox_MenChristmasSweaterQuantity" Grid.Row="1" Grid.Column="2" MaxLength="3" HorizontalAlignment="Left" Margin="25,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30"  PreviewTextInput="NumberValidationTextBox"/>
+                <TextBox x:Name="TextBox_WomenChristmasSweaterQuantity" Grid.Row="2" Grid.Column="2" MaxLength="3" HorizontalAlignment="Left" Margin="25,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" PreviewTextInput="NumberValidationTextBox"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="TextBox_DiscountCode" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30"/>
+                <Image x:Name="Image_ChristmasBell" Grid.Row="0" Source="Images/Image_ChristmasBell.png" Width="50" Height="50" Margin="180,-29,70,54"/>
+                <TextBlock x:Name="TextBlock_DiscountCode" HorizontalAlignment="Left" TextWrapping="Wrap" Text="CÓDIGO DE DESCUENTO" VerticalAlignment="Top" Width="106" Foreground="White" FontSize="14" FontWeight="Bold" FontFamily="Segoe UI" Margin="103,-2,0,0" TextAlignment="Center"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37.5"/>
+                        <RowDefinition Height="37.5"/>
+                        <RowDefinition Height="37.5"/>
+                        <RowDefinition Height="37.5"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="Label_SubTotal" Grid.Column="0" Content="Sub-Total" HorizontalAlignment="Left" Margin="79,5,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" Width="75" Height="30"/>
+                    <Label x:Name="Label_Discount"  Grid.Row="1" Grid.Column="0" Content="Descuento" HorizontalAlignment="Left" Margin="73,-3,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" Width="80" Height="30"/>
+                    <Label x:Name="Label_IVA"  Grid.Row="1" Grid.Column="0" Content="IVA" HorizontalAlignment="Left" Margin="119,34,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" Width="76" Height="30" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <Label x:Name="Label_Total"  Grid.Row="3" Grid.Column="0" Content="TOTAL" HorizontalAlignment="Left" Margin="99,5,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" Width="75" Height="30"/>
+                    <TextBox x:Name="TextBox_SubTotal" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="140" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_Discount" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_IVA" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" Margin="0,34,0,0" Grid.RowSpan="2" IsReadOnly="True"/>
+                    <TextBox x:Name="TextBox_Total" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="140" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" IsReadOnly="True"/>
+                </Grid>
+                <Border x:Name="Border_Gratitude" Grid.Row="2" BorderBrush="White" Background="#ff2600" BorderThickness="2" CornerRadius="20,20,20,20">
+                    <Button x:Name="Button_Buy" HorizontalAlignment="Center" Margin="0,0,0,8" Foreground="White" FontWeight="Normal" FontFamily="Harrington" FontSize="24" Height="45" Background="#ff2600" BorderBrush="#ff2600" Width="290" Click="Label_Gratitude_Click" >¡Gracias por su PEDIDO!</Button>
+                </Border>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="TextBlock_DateOfDelivery" Grid.Column="1" Text="FECHA DE ENTREGA" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" Width="80" Height="40" TextAlignment="Center" Margin="0,7,0,0"/>
+                    <Image x:Name="Image_ChristmasSleigh" Grid.Column="0" Source="Images/Image_ChristmasSleigh.png" Width="75" Height="75" Margin="86,-5,134,0" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="TextBox_DateOfDelivery" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" Margin="0,43,0,0" IsReadOnly="True"/>
+                </Grid>
+                <Button x:Name="Button_Next" Grid.Row="4" Content="Siguiente" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,16,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"/>
+                <Button x:Name="Button_Exit" Grid.Row="4" Content="Salir" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,56,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"/>
+            </Grid>
+            <Label x:Name="Label_Cantidad" Content="CANTIDAD" HorizontalAlignment="Left" Margin="360,-1,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="White"/>
+        </Grid>
     </Grid>
 </Window>

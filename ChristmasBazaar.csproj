@@ -94,5 +94,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Image_PoinsettiaFlower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Image_ChristmasBell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Image_ChristmasSocks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Image_MenChristmasSweater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Image_WomenChristmasSweater.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Image_ChristmasSleigh.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
