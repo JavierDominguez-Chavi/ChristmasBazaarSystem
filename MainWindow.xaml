@@ -105,8 +105,8 @@
                     <Image x:Name="Image_ChristmasSleigh" Grid.Column="0" Source="Images/Image_ChristmasSleigh.png" Width="75" Height="75" Margin="86,-5,134,0" Grid.ColumnSpan="2"/>
                     <TextBox x:Name="TextBox_DateOfDelivery" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30" Background="White" Margin="0,43,0,0" IsReadOnly="True"/>
                 </Grid>
-                <Button x:Name="Button_Next" Grid.Row="4" Content="Siguiente" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,16,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"/>
-                <Button x:Name="Button_Exit" Grid.Row="4" Content="Salir" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,56,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal"/>
+                <Button x:Name="Button_Next" Grid.Row="4" Content="Siguiente" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,16,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Click="Button_Next_Click"/>
+                <Button x:Name="Button_Exit" Grid.Row="4" Content="Salir" HorizontalAlignment="Center"  VerticalAlignment="Top" BorderBrush="#009051" BorderThickness="5" Background="#009051" Height="30" Width="100" Margin="0,56,0,0" Foreground="White" FontFamily="Segoe UI" FontSize="14" FontWeight="Normal" Click="Button_Exit_Click"/>
             </Grid>
             <Label x:Name="Label_Cantidad" Content="CANTIDAD" HorizontalAlignment="Left" Margin="360,-1,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Foreground="White"/>
         </Grid>
