@@ -24,105 +24,114 @@ namespace ChristmasBazaar
         public MainWindow()
         {
             InitializeComponent();
+            this.TextBlock_SocksNotAvailable.Visibility = Visibility.Hidden;
+            this.TextBlock_MenSweaterNotAvailable.Visibility = Visibility.Hidden;
+            this.TextBlock_WomenSweaterNotAvailable.Visibility = Visibility.Hidden;
         }
         private void Label_Gratitude_Click(object sender, RoutedEventArgs e)
         {
-            bool nameAndAddresValidation = ValidateNameAndAddresAreNotEmpty();
-            
-            if (nameAndAddresValidation && ValidateSocksInventory() && ValidateWomenSweaterInventory() //HAY QUE REFACTORIZAR PARA BAJAR COMPLEJIDAD
-            && ValidateMenSweaterInventory() && ValidateOrderIsNotZero())
+            if (!ValidateNameAndAddresAreNotEmpty())
             {
-                MessageBox.Show("Feliz Hallowen Navideño");
+                ValidateOrdersAreNotEmpty();
             }
             else
             {
-                //Acciones
+                MessageBox.Show("Para realizar un pedido debe ingresar su nombre y direccion",
+                                "Nombre y/o direccion no ingresado", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         private Boolean ValidateNameAndAddresAreNotEmpty()
         {
-            Boolean validation = true;
+            Boolean validation = false;
             if (String.IsNullOrWhiteSpace(this.TextBox_Name.Text) || String.IsNullOrEmpty(this.TextBox_Addres.Text))
             {
-                MessageBox.Show("Para realizar un pedido debe ingresar su nombre y direccion",
-                                "Nombre y/o direccion no ingresado", MessageBoxButton.OK, MessageBoxImage.Warning);
-                validation = false;
+                validation = true;
             }
             return validation;
         }
 
-        private Boolean ValidateOrdersAreNotEmpty()
+        private void ValidateOrdersAreNotEmpty()
         {
-            Boolean validation = true;
-            if (String.IsNullOrWhiteSpace(this.TextBox_ChristmasSocksQuantity.Text) && String.IsNullOrWhiteSpace(this.TextBox_MenChristmasSweaterQuantity.Text)
-            || String.IsNullOrWhiteSpace(this.TextBox_WomenChristmasSweaterQuantity.Text) )
+            bool socksValidation = false;
+            bool menSweaterValidation = false;
+            bool womenSweaterValidation = false;
+            if (!String.IsNullOrWhiteSpace(this.TextBox_ChristmasSocksQuantity.Text))
             {
-                MessageBox.Show("Los debe ingresar a cantidad de por lo menos un producto");//Tambien es etiqueta
-                validation = false;
+                socksValidation = ValidateSocksInventory(socksValidation);
             }
-            return validation;
+            else
+            {
+                socksValidation = true;
+            }
+            if (!String.IsNullOrWhiteSpace(this.TextBox_MenChristmasSweaterQuantity.Text))
+            {
+                 menSweaterValidation = ValidateMenSweaterInventory(menSweaterValidation);
+            }
+            else
+            {
+                menSweaterValidation = true;
+            }
+            if (!String.IsNullOrWhiteSpace(this.TextBox_WomenChristmasSweaterQuantity.Text))
+            {
+                womenSweaterValidation = ValidateWomenSweaterInventory(womenSweaterValidation);
+            }
+            else
+            {
+                womenSweaterValidation = true;
+            }
+            BuyProcessing(socksValidation, menSweaterValidation, womenSweaterValidation);
         }
-        private Boolean ValidateSocksInventory()
+        private Boolean ValidateSocksInventory(bool socksValidation)
         {
-            Boolean socksValidation = true;
-            if (ValidateOrdersAreNotEmpty())
-            {
-                if (Int32.Parse(this.TextBox_ChristmasSocksQuantity.Text) > 200) //Aqui en lugar de 200 va una variable dinamica que consulta en la base de datos cuanto producto queda
+            this.TextBlock_SocksNotAvailable.Visibility = Visibility.Hidden;
+            if (Int32.Parse(this.TextBox_ChristmasSocksQuantity.Text) > 200) //Aqui en lugar de 200 va una variable dinamica que consulta en la base de datos cuanto producto queda
                 {
-                    //Cambier este mensaje por un etiqueta que se ponga roja que no sea una ventana emergente
-                    MessageBox.Show("El pedido solicitado excede el inventario ");
-                    socksValidation = false;
+                    this.TextBlock_SocksNotAvailable.Visibility = Visibility.Visible;
+                    this.TextBox_ChristmasSocksQuantity.Clear();
+                    socksValidation = true;
                 }
-            }
+            
             return socksValidation;
         }
 
-        private Boolean ValidateMenSweaterInventory()
+        private Boolean ValidateMenSweaterInventory(bool menSweaterValidation)
         {
-            Boolean menSweaterValidation = true;
-            if (ValidateOrdersAreNotEmpty())
-            {
-                if (Int32.Parse(this.TextBox_MenChristmasSweaterQuantity.Text) > 50) //Aqui en lugar de 50 va una variable dinamica que consulta en la base de datos cuanto producto queda
+            this.TextBlock_MenSweaterNotAvailable.Visibility = Visibility.Hidden;
+            if (Int32.Parse(this.TextBox_MenChristmasSweaterQuantity.Text) > 50) //Aqui en lugar de 50 va una variable dinamica que consulta en la base de datos cuanto producto queda
                 {
-                    //Cambier este mensaje por un etiqueta que se ponga roja que no sea una ventana emergente
-                    MessageBox.Show("El pedido solicitado excede el inventario ");
-                    menSweaterValidation = false;
+                    this.TextBlock_MenSweaterNotAvailable.Visibility = Visibility.Visible;
+                    this.TextBox_MenChristmasSweaterQuantity.Clear();
+                    menSweaterValidation = true;
                 }
-            }
+            
             return menSweaterValidation;
         }
-
-
-        private Boolean ValidateWomenSweaterInventory()
+        private Boolean ValidateWomenSweaterInventory(bool womenSweaterValidation)
         {
-            Boolean womenSweaterValidation = true;
-            if (ValidateOrdersAreNotEmpty())
-            {
-                if (Int32.Parse(this.TextBox_MenChristmasSweaterQuantity.Text) > 150) //Aqui en lugar de 150 va una variable dinamica que consulta en la base de datos cuanto producto queda
+            this.TextBlock_WomenSweaterNotAvailable.Visibility = Visibility.Hidden;
+            if (Int32.Parse(this.TextBox_WomenChristmasSweaterQuantity.Text) > 150) //Aqui en lugar de 150 va una variable dinamica que consulta en la base de datos cuanto producto queda
                 {
-                    //Cambier este mensaje por un etiqueta que se ponga roja que no sea una ventana emergente
-                    MessageBox.Show("El pedido solicitado excede el inventario ");
-                    womenSweaterValidation = false;
+                    this.TextBlock_WomenSweaterNotAvailable.Visibility = Visibility.Visible;
+                    this.TextBox_WomenChristmasSweaterQuantity.Clear();
+                    womenSweaterValidation = true;
                 }
-            }
             return womenSweaterValidation;
         }
-
-        private Boolean ValidateOrderIsNotZero()
+        private void BuyProcessing(bool socksValidation, bool menSweaterValidation, bool womenSweaterValidation) 
         {
-            Boolean validation = true;
-            if (ValidateOrdersAreNotEmpty())
+            if (!socksValidation || !menSweaterValidation || !womenSweaterValidation)
             {
-                if (Int32.Parse(this.TextBox_ChristmasSocksQuantity.Text) <= 0 || Int32.Parse(this.TextBox_MenChristmasSweaterQuantity.Text) <= 0
-                || Int32.Parse(this.TextBox_WomenChristmasSweaterQuantity.Text) <= 0)
-                {
-                    MessageBox.Show("El pedido solicitado debe ser mayor a 0");
-                    validation = false;
-                }
+                this.TextBlock_SocksNotAvailable.Visibility = Visibility.Hidden;
+                this.TextBlock_MenSweaterNotAvailable.Visibility = Visibility.Hidden;
+                this.TextBlock_WomenSweaterNotAvailable.Visibility = Visibility.Hidden;
+                MessageBox.Show("Paso:p");//Codigo que saca los totales del producto
             }
-            return validation;
+            else 
+            {
+                MessageBox.Show("La cantidad de productos solicitados excede o es nula por favor verifique de nuevo",
+                                 "Cantidad de productos inválido", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
-
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs textCompositionEvent) 
         {
             Regex regex = new Regex("[^0-9]+");
